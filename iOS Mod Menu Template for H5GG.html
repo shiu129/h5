@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>iOS-Mod-Menu-Template-for-Theos</title>
+
+    <style>
+        * {
+            -webkit-user-select: none;
+            user-select: none;
+            font-weight: bold;
+            font-family: "Arial";
+        }
+
+        body {
+            vertical-align: middle;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #template {
+            transition: opacity 0.7s ease;
+            border-radius: 10px;
+            background-color: aqua;
+            height: 279px;
+            width: 260px;
+            position: fixed;
+            top: calc(52.7%);
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #title {
+            height: 50px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color: red;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        #logo {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            width: 50px;
+        }
+
+        #modname {
+            margin: 6px;
+            color: white;
+            font-size: 17px;
+        }
+
+        #Menu {
+            height: 208px;
+            background-color: gray;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        #footer {
+            height: 21px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            font: 30px;
+            background-color: red;
+        }
+
+        .button1 {
+            height: 52px;
+            width: 100%;
+            border-radius: 0px;
+            border-bottom: 1px solid white;
+            background-color: gray;
+            display: flex;
+            transition: background-color 0.6s ease;
+        }
+
+        .patchname {
+            height: 52px;
+            width: 208px;
+            color: rgba(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .description {
+            height: 52px;
+            width: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 16px;
+            height: 16px;
+            right: 13px;
+            font-size: 14px;
+            border-radius: 50%;
+            font-family: "ourier";
+            font-weight: normal;
+            color: red;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="template">
+        <div id="title" onclick="closeMenu()">
+            <img id="logo" src="https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2017/02/4537807131058.01.jpg">
+            <span id="modname">TEST MOD - MOD MENU</span>
+        </div>
+        <div id="Menu">
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    /*
+    このhtmlはjoeyjurjensさんのTed2-Mod-Menu-Template.v1.0.1.nicを参考に作成されました
+    -> https://github.com/joeyjurjens/iOS-Mod-Menu-Template-for-Theos?tab=readme-ov-file
+
+    <使用方法>
+    addSwitch(引数1, 引数2, { "offsets": オブジェクト1, 'bytes': オブジェクト2 });
+    引数1に機能名 引数2に説明 オブジェクト1にオフセット オブジェクト2に値
+    例:addSwitch("コイン増加", "コインが増えます", { "offsets": 0x1005EB70C, 'bytes': 0x0121020B });
+
+    Unityに対応させたい場合はconst baseAddr = Number(h5gg.getRangesList("UnityFramework")[0].start);
+
+    質問等ございましたら下記の連絡先へ
+    html,js,css担当 Frost6580#0 @frost6580
+    オフセット担当 moonhhta#0 @aiYouTube2012
+    */
+
+    window.onload = function () {
+        addSwitch("コイン増加", "コインが増えます", { "offsets": 0x1005EB70C, 'bytes': 0x0121020B });
+        addSwitch("経験値増加", "経験値が増えます", { "offsets": 0x1005ED8AC, 'bytes': 0xE10314AA });
+        addSwitch("スコア増加", "スコアが増えます", { "offsets": 0x1005D9434, 'bytes': 0xC0035FD6 });
+        addSwitch("ツム経験値増加", "ツムの経験値が増えます", { "offsets": 0x1005DE550, 'bytes': 0x01050011 });
+        addSwitch("単体消し", "チェーン1つで消せます", { "offsets": 0x1006263F8, 'bytes': 0xC0035FD6 });
+        addSwitch("オートチェーン", "自動でチェーンが作られます", { "offsets": 0x1006263F8, 'bytes': 0x016A9852 });
+        addSwitch("全ツムチェーン可能", "別の種類のツム同士を消せます", { "offsets": 0x100626C0C, 'bytes': 0xC0035FD6 });
+        addSwitch("時間増加+2", "ツムを消すと時間が2秒増えます", { "offsets": 0x1005DE390, 'bytes': 0x1F2003D5 });
+        addSwitch("即終了", "終了してリザルトへ行きます", { "offsets": 0x1005D8028, 'bytes': 0x1F2003D5 });
+        addSwitch("マイツム1種類", "1種類しか落ちてこなくなります", { "offsets": 0x1005E3050, 'bytes': 0x1F2003D5 });
+        addSwitch("ツム量増加", "ツムの量が増えます", { "offsets": 0x1005E0DD4, 'bytes': 0x29250071 });
+        addSwitch("無限スキル", "無限にスキルが使えます", { "offsets": 0x1005F3088, 'bytes': 0x02008052 });
+        addSwitch("ガチャ演出スキップ", "ガチャ演出が無視されます", { "offsets": 0x10059F5D0, 'bytes': 0xC0035FD6 });
+    }
+
+    /*↓馬鹿はここから下触んな↓*/
+
+    var sWidth;
+    var sHeight;
+    let button1 = document.getElementsByClassName("button1");
+    let patchname = document.getElementsByClassName("patchname");
+    let description = document.getElementsByClassName("description");
+    let BC = 0;
+    const baseAddr = Number(h5gg.getRangesList(0)[0].start);
+    let buttonArray = new Array();
+
+    function addSwitch(name, des, offset) {
+
+        let newbutton = document.createElement('div');
+        newbutton.className = `button1`;
+        newbutton.innerHTML = `<div class="patchname"><span>${name}</span></div>`;
+        newbutton.innerHTML += `<div class="description"><span class="circle">i</span></div>`;
+        document.getElementById("Menu").appendChild(newbutton);
+
+        button1[BC].offsets = `0x${offset.offsets.toString(16)}`;
+        button1[BC].bytes = getHexString(offset.bytes);
+        button1[BC].org = "";
+        button1[BC].ischecked = false;
+
+        patchname[BC].addEventListener('click', function () {
+            if (!this.parentNode.ischecked) {
+                this.parentNode.ischecked = true;
+                this.parentNode.org = getOrg(this.parentNode.offsets, this.parentNode.bytes);
+                patchBytes(this.parentNode.offsets, this.parentNode.bytes);
+                this.parentNode.style.backgroundColor = `cyan`;
+            } else {
+                this.parentNode.ischecked = false;
+                patchBytes(this.parentNode.offsets, this.parentNode.org);
+                this.parentNode.style.backgroundColor = `gray`;
+            }
+        });
+
+        description[BC].addEventListener('click', function () {
+            alert(des);
+        });
+
+        BC++;
+    }
+
+    const layout = function () {
+        setWindowDrag(0, 0, 0, 0);
+        if (window.lastorientation == window.orientation) return;
+        window.lastorientation = window.orientation;
+        if (Math.abs(window.orientation) == 90) {
+            sWidth = window.screen.height;
+            sHeight = window.screen.width;
+        } else {
+            sWidth = window.screen.width;
+            sHeight = window.screen.height;
+        }
+        setWindowRect(0, 0, sWidth, sHeight);
+    }
+
+    layout();
+    window.addEventListener("orientationchange", layout, false);
+
+    setButtonAction(function () {
+        if (template.style.opacity == '0') {
+            setWindowTouch(true);
+            template.style.opacity = 1.0;
+        } else {
+            setWindowTouch(false);
+            template.style.opacity = 0.0;
+        }
+    });
+
+    function closeMenu() {
+        setWindowTouch(false);
+        template.style.opacity = 0.0;
+    }
+
+    function getHexString(value) {
+        let hexString = value.toString(16);
+        if (hexString.length % 2 !== 0) hexString = `0${hexString}`;
+        return `0x${hexString}`;
+    }
+
+    function getASLR() {
+        return baseAddr - 0x100000000;
+    }
+
+    function patchBytes(addr, hex) {
+        hex = hex.replace(/^0x/, "");
+        for (i = 0; i < hex.length / 2; i++) {
+            h5gg.setValue(Number(addr) + getASLR() + i, parseInt(hex.substring(i * 2, i * 2 + 2), 16), "U8");
+        }
+    }
+
+    function getOrg(addr, hex) {
+        hex = hex.replace(/^0x/, "");
+        let value = "0x";
+        for (i = 0; i < hex.length / 2; i++) {
+            value += `${('0' + Number(h5gg.getValue(Number(addr) + getASLR() + i, "U8")).toString(16)).slice(-2)}`;
+        }
+        return value;
+    }
+
+    //setButtonImage(`https://kaiyodo.co.jp/items/wp-content/uploads/sites/4/2017/02/4537807131058.01.jpg`);
+
+</script>
+
+</html>
+
+
+
+
+    <script>
+    try {
+        // 変数 h5gg を無理やり定義
+        var h5gg = {
+            getRangesList: function() {
+                return [{ start: 0 }];
+            },
+            getValue: function() {
+                return 0;
+            },
+            setValue: function() {}
+        };
+
+        // baseAddr の初期化
+        const baseAddr = Number(h5gg.getRangesList(0)[0].start);
+
+        // コンソールにログを出力
+        console.log(h5gg);
+        console.log(baseAddr);
+    } catch (e) {
+        console.error(e);
+    }
+</script>
